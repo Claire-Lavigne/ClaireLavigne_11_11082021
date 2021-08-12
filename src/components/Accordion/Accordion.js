@@ -15,11 +15,12 @@ class Accordion extends Component {
   };
 
   render() {
-    const activeAccordionBTN = this.state.active ? `${styles.accordionBtn} ${styles.active}` : `${styles.accordionBtn}`
-    const activeAccordionContent = this.state.active ? `${styles.accordionPanel} ${styles.active}` : `${styles.accordionPanel}`
-    
+    const activeAccordionBTN = this.state.active ? `${styles.accordionBtn} ${styles.active}` : `${styles.accordionBtn}`;
+    const activeAccordionContent = this.state.active ? `${styles.accordionPanel} ${styles.active}` : `${styles.accordionPanel}`;
+    const size = this.props.size === 'half' ? `${styles.accordion} ${styles.half}`: `${styles.accordion} ${styles.full}`
+
     return (
-      <div className={styles.accordion}>
+      <div className={size}>
         <button
           className={
             activeAccordionBTN
@@ -31,9 +32,7 @@ class Accordion extends Component {
         <div
           className={activeAccordionContent}
         >
-          <ul>
-            <li></li>
-          </ul>
+          {this.props.children}
         </div>
       </div>
     );

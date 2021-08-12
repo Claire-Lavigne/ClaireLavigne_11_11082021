@@ -8,7 +8,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Accordion />
+        <Accordion size="half"><h1>Hello</h1></Accordion>
         <Carrousel />
         <Tag />
         <Thumbnail />

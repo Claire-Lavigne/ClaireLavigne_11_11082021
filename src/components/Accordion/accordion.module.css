@@ -1,4 +1,4 @@
-.accordion-btn {
+.accordionBtn {
   background: var(--main-clr);
   color: var(--white);
   cursor: pointer;
@@ -9,11 +9,11 @@
   font-size: 24px;
   transition: 0.4s;
 }
-.accordion-btn-small {
+.accordionBtnSmall {
   font-size: 18px;
 }
 
-.accordion-panel {
+.accordionPanel {
   padding: 0 18px;
   display: none;
   background: var(--grey);
@@ -22,10 +22,10 @@
   font-weight: normal;
   font-size: 24px;
 }
-.accordion-panel.active {
+.accordionPanel.active {
   display: block;
 }
 
-.accordion-panel-small {
+.accordionPanelSmall {
   font-size: 18px;
 }

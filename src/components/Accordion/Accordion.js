@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/accordion.css";
+import styles from "./accordion.module.css";
 
 class Accordion extends Component {
   constructor(props) {
@@ -15,20 +15,21 @@ class Accordion extends Component {
   };
 
   render() {
+    const activeAccordionBTN = this.state.active ? `${styles.accordionBtn} ${styles.active}` : `${styles.accordionBtn}`
+    const activeAccordionContent = this.state.active ? `${styles.accordionPanel} ${styles.active}` : `${styles.accordionPanel}`
+    
     return (
-      <div className="accordion">
+      <div className={styles.accordion}>
         <button
           className={
-            this.state.active ? "accordion-btn active" : "accordion-btn"
+            activeAccordionBTN
           }
           onClick={this.toggleClass}
         >
           Text btn
         </button>
         <div
-          className={
-            this.state.active ? "accordion-panel active" : "accordion-panel"
-          }
+          className={activeAccordionContent}
         >
           <ul>
             <li></li>

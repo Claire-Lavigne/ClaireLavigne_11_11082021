@@ -1,0 +1,10 @@
+.tag {
+  background: var(--main-clr);
+  color: var(--white);
+  padding: 3px 45px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  width: 115px;
+  height: 25px;
+}

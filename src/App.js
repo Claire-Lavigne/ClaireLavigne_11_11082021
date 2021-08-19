@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import Nav from "./components/Nav";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -10,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Nav />
+        <Header />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />

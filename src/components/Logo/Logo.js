@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 
 class Logo extends Component {
   render() {
+    const clr = this.props.clr === "clr" ? "logo-clr" : null;
+    const url =
+      this.props.url === "clr"
+        ? "/assets/logo-color.png"
+        : "/assets/logo-white.png";
     return (
-      <Link to={"/"} className="nav-link">
-        <img src="/assets/logo-color.png" alt="" />
+      <Link to={"/"}>
+        <img className={`logo ${clr}`} src={url} alt="Logo Kasa" />
       </Link>
     );
   }

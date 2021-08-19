@@ -1,0 +1,34 @@
+.notFound {
+  height: 70vh;
+}
+
+.notFoundTitle {
+  font-weight: bold;
+  font-size: var(--elephant);
+  color: var(--main-clr);
+  margin-bottom: 0;
+}
+
+.notFoundSubtitle {
+  color: var(--main-clr);
+  margin-top: 0;
+  margin-bottom: 150px;
+}
+
+.notFoundLink {
+  font-size: var(--mouse);
+  color: var(--main-clr);
+  text-decoration-line: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .notFoundTitle {
+    font-size: var(--t-rex);
+  }
+  .notFoundSubtitle {
+    font-size: calc(var(--human) * 2);
+  }
+  .notFoundLink {
+    font-size: var(--human);
+  }
+}

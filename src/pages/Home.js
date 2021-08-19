@@ -4,6 +4,7 @@ import Accordion from "../components/Accordion/Accordion";
 import Carrousel from "../components/Carrousel";
 import Tag from "../components/Tag";
 import Thumbnail from "../components/Thumbnail";
+import datas from "../datas.json";
 
 class Home extends Component {
   render() {
@@ -18,7 +19,13 @@ class Home extends Component {
         </Accordion>
         <Carrousel />
         <Tag />
-        <Thumbnail />
+        {datas.map((item, index) => (
+          <Thumbnail
+            key={"thumbnail" + index}
+            cover={item.cover}
+            title={item.title}
+          />
+        ))}
       </div>
     );
   }

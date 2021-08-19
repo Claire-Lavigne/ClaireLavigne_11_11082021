@@ -3,10 +3,11 @@ import "../styles/thumbnail.css";
 
 class Thumbnail extends Component {
   render() {
+    const { property } = this.props;
     return (
       <div className="thumbnail">
-        <img src={this.props.cover} alt={this.props.title} />
-        <p className="thumbnail-text">{this.props.title}</p>
+        <img src={property.cover} alt={property.title} />
+        <p className="thumbnail-text">{property.title}</p>
       </div>
     );
   }

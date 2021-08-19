@@ -20,11 +20,7 @@ class Home extends Component {
         <Carrousel />
         <Tag />
         {datas.map((item, index) => (
-          <Thumbnail
-            key={"thumbnail" + index}
-            cover={item.cover}
-            title={item.title}
-          />
+          <Thumbnail key={"thumbnail" + index} property={item} />
         ))}
       </div>
     );

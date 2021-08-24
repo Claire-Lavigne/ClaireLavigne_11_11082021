@@ -4,7 +4,7 @@ import Accordion from "../../components/Accordion/Accordion";
 import Carrousel from "../../components/Carrousel";
 import Tag from "../../components/Tag";
 import Thumbnail from "../../components/Thumbnail/Thumbnail";
-import datas from "../../datas.json";
+import datasProperty from "../../datas-property.json";
 
 class Property extends Component {
   render() {
@@ -19,7 +19,7 @@ class Property extends Component {
           <h1> Truc </h1>
         </Accordion>
         <Tag />
-        {datas.map((item, index) => (
+        {datasProperty.map((item, index) => (
           <Thumbnail key={"thumbnail" + index} property={item} />
         ))}
       </div>

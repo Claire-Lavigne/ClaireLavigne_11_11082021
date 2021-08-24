@@ -6,7 +6,7 @@ import Carrousel from "../../components/Carrousel";
 import Tag from "../../components/Tag";
 import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import Footer from "../../components/Footer/Footer";
-import datas from "../../datas.json";
+import datasProperty from "../../datas-property.json";
 
 class Home extends Component {
   render() {
@@ -15,7 +15,7 @@ class Home extends Component {
         <Header />
         <Banner />
         <section className="d-flex">
-          {datas.map((item, index) => (
+          {datasProperty.map((item, index) => (
             <Thumbnail key={"thumbnail" + index} property={item} />
           ))}
         </section>

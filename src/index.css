@@ -8,7 +8,7 @@
   --dark: #000;
 
   /* fs */
-  --ant: 12px; /* x2=24 */
+  --ant: 12px; /* x2=24 x4=48*/
   --mouse: 14px;
   --human: 18px; /* x2=36 */
   --elephant: 96px;
@@ -28,12 +28,33 @@ body,
   font-size: var(--human);
 }
 
+body {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  margin: 0 20px;
+}
+
 header {
-  padding: 1em 0.5em;
+  padding: 1em 0;
+}
+
+.navLink {
+  padding: 1em;
+  font-size: var(--ant);
+  color: var(--main-clr);
+  text-decoration: none;
+}
+.navLink:hover,
+.navLink.is-active {
+  text-decoration: underline;
 }
 
 footer {
   padding: 2em;
+  margin: 0 -20px;
   background: var(--dark);
   color: var(--light);
 }
@@ -44,6 +65,14 @@ footer div {
 
 footer .logo {
   margin-bottom: 1em;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .d-flex {
@@ -61,25 +90,6 @@ footer .logo {
   justify-content: space-between;
 }
 
-.text-right {
-  text-align: right;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.navLink {
-  padding: 1em;
-  font-size: var(--ant);
-  color: var(--main-clr);
-  text-decoration: none;
-}
-.navLink:hover,
-.navLink:active {
-  text-decoration: underline;
-}
-
 /* mobile */
 @media screen and (max-width: 599px) {
   .navLink {
@@ -93,10 +103,16 @@ footer .logo {
 
 /* computer */
 @media screen and (min-width: 600px) {
-  footer div {
-    font-size: calc(var(--ant) * 2);
+  header {
+    padding: 1em 0.5em;
   }
   .navLink {
+    font-size: calc(var(--ant) * 2);
+  }
+  footer {
+    margin: 0 -100%;
+  }
+  footer div {
     font-size: calc(var(--ant) * 2);
   }
 }

@@ -1,16 +1,26 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Nav extends Component {
   render() {
     return (
       <nav className="text-right">
-        <Link to={"/"} className="navLink">
-          Home
-        </Link>
-        <Link to={"/about"} className="navLink">
-          About
-        </Link>
+        <NavLink
+          exact={true}
+          activeClassName="is-active"
+          to={"/"}
+          className="navLink"
+        >
+          Accueil
+        </NavLink>
+        <NavLink
+          exact={true}
+          activeClassName="is-active"
+          to={"/about"}
+          className="navLink"
+        >
+          A propos
+        </NavLink>
       </nav>
     );
   }

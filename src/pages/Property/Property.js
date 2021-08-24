@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import Accordion from "../../components/Accordion/Accordion";
 import Carrousel from "../../components/Carrousel";
 import Tag from "../../components/Tag";
-import Thumbnail from "../../components/Thumbnail";
+import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import datas from "../../datas.json";
 
 class Property extends Component {

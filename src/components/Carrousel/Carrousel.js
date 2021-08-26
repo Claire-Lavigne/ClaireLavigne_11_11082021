@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import "../styles/carrousel.css";
+import "./carrousel.css";
 
 class Carrousel extends Component {
   render() {
+    const { property } = this.props;
     return (
       <div className="carrousel">
-        <img className="carrousel-img" src="" alt="" />
+        <img src="" alt="" loading="eager" />
       </div>
     );
   }

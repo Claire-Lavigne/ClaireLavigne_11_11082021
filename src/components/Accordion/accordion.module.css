@@ -1,35 +1,33 @@
 .accordion {
   margin: 1em auto;
-  text-align: center;
 }
 
 .accordionBtn {
   background: var(--main-clr);
   color: var(--light);
   cursor: pointer;
-  padding: 18px;
+  padding: 18px 30px;
   border-radius: 10px;
   outline: none;
   font-weight: 500;
-  font-size: calc(var(--ant) * 2);
+  font-size: 13px;
   transition: 0.4s;
   width: 100%;
   max-width: 1023px;
 }
 .accordionBtnSmall {
-  font-size: var(--human);
   max-width: 582px;
 }
 
 .accordionPanel {
   padding: 20px;
   display: none;
+  line-height: 142.6%;
   background: var(--grey);
   color: var(--main-clr);
   overflow: hidden;
   font-weight: normal;
-  font-size: calc(var(--ant) * 2);
-  width: 100%;
+  font-size: var(--ant);
   max-width: 978px;
   margin: 1em auto;
 }
@@ -38,6 +36,16 @@
 }
 
 .accordionPanelSmall {
-  font-size: var(--human);
   max-width: 550px;
+}
+
+@media screen and (min-width: 600px) {
+  .accordionBtn,
+  .accordionPanel {
+    font-size: calc(var(--ant) * 2);
+  }
+  .accordionBtnSmall,
+  .accordionPanelSmall {
+    font-size: var(--human);
+  }
 }

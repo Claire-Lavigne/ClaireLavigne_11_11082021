@@ -5,12 +5,14 @@ import Carrousel from "../../components/Carrousel";
 import Tag from "../../components/Tag";
 import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import datasProperty from "../../datas-property.json";
+import Banner from "../../components/Banner/Banner";
 
 class Property extends Component {
   render() {
     return (
       <div>
         <Header />
+        <Banner url={datasProperty.id} />
         <Carrousel />
         <Accordion size="half">
           <h1> Hello </h1>
@@ -19,9 +21,11 @@ class Property extends Component {
           <h1> Truc </h1>
         </Accordion>
         <Tag />
-        {datasProperty.map((item, index) => (
-          <Thumbnail key={"thumbnail" + index} property={item} />
-        ))}
+        <section className="thumbnails d-flex">
+          {datasProperty.map((item, index) => (
+            <Thumbnail key={"thumbnail" + index} property={item} />
+          ))}
+        </section>
       </div>
     );
   }

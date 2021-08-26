@@ -28,17 +28,18 @@ body,
   font-size: var(--human);
 }
 
-body {
-  max-width: 1240px;
-  margin: 0 auto;
-}
-
 .wrapper {
   margin: 0 20px;
 }
 
 header {
   padding: 1em 0;
+}
+
+header,
+section {
+  margin: 0 auto;
+  max-width: 1240px;
 }
 
 .navLink {
@@ -67,12 +68,27 @@ footer .logo {
   margin-bottom: 1em;
 }
 
+img:not(.logo) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .text-right {
   text-align: right;
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.m-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .d-flex {
@@ -88,6 +104,10 @@ footer .logo {
 
 .justify-between {
   justify-content: space-between;
+}
+
+section:last-of-type {
+  margin-bottom: 4em;
 }
 
 /* mobile */
@@ -108,9 +128,6 @@ footer .logo {
   }
   .navLink {
     font-size: calc(var(--ant) * 2);
-  }
-  footer {
-    margin: 0 -100%;
   }
   footer div {
     font-size: calc(var(--ant) * 2);

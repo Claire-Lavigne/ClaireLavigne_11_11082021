@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class Logo extends Component {
   render() {
-    const clr = this.props.clr === "clr" ? "logo-clr" : null;
+    const clr = this.props.clr === "clr" ? "logo-clr" : "";
     const url =
       this.props.url === "clr"
         ? "/assets/logo-color.png"

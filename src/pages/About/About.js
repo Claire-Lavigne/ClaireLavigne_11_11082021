@@ -10,13 +10,15 @@ class About extends Component {
     return (
       <div className="wrapper">
         <Header />
-        <Banner />
-        {datasPrinciples.map((item) => (
-          <Accordion>
-            {item.title}
-            {item.description}
-          </Accordion>
-        ))}
+        <Banner img="assets/landscape-mountains.png" />
+        <section class="accordions">
+          {datasPrinciples.map((item) => (
+            <Accordion>
+              {item.title}
+              {item.description}
+            </Accordion>
+          ))}
+        </section>
         <Footer />
       </div>
     );

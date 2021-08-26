@@ -15,7 +15,7 @@ class Accordion extends Component {
   };
 
   render() {
-    const isActive = this.state.active ? styles.active : "";
+    const isActive = this.state.active ? "active" : "";
     const size = this.props.size === "half" ? styles.half : "";
     const sizeBTN = this.props.size === "half" ? styles.accordionBtnSmall : "";
     const sizeContent =

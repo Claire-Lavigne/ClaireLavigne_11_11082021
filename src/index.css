@@ -106,6 +106,10 @@ img:not(.logo) {
   justify-content: space-between;
 }
 
+.active {
+  display: block;
+}
+
 section:last-of-type {
   margin-bottom: 4em;
 }

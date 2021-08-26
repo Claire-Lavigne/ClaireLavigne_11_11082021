@@ -1,0 +1,40 @@
+.slider {
+  width: 100%;
+  max-width: 335px;
+  height: 255px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/*
+.slide {
+  display: none;
+}
+*/
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border: none;
+  padding: 2em;
+  background: transparent;
+  cursor: pointer;
+}
+
+.next {
+  left: unset;
+  right: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .slider {
+    max-width: 1240px;
+    height: 415px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+}

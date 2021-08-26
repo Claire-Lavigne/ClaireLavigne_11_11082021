@@ -7,7 +7,7 @@ class Thumbnail extends Component {
     return (
       <div className="thumbnail">
         <img src={property.cover} alt={property.title} loading="eager" />
-        <div class="thumbnail-box">
+        <div className="thumbnail-box">
           <p className="thumbnail-text">{property.title}</p>
         </div>
       </div>

@@ -31,9 +31,6 @@
   max-width: 978px;
   margin: 1em auto;
 }
-.accordionPanel.active {
-  display: block;
-}
 
 .accordionPanelSmall {
   max-width: 550px;

@@ -13,8 +13,8 @@ class Home extends Component {
         <Banner img="assets/landscape-forest.png" />
         <section className="thumbnails d-flex">
           {datasProperty.map((item, index) => (
-            <a href={`/property:${item.id}`}>
-              <Thumbnail key={"thumbnail" + index} property={item} />
+            <a key={"thumbnail" + index} href={`/property:${item.id}`}>
+              <Thumbnail property={item} />
             </a>
           ))}
         </section>

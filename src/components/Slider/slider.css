@@ -7,12 +7,6 @@
   position: relative;
 }
 
-/*
-.slide {
-  display: none;
-}
-*/
-
 .prev,
 .next {
   position: absolute;

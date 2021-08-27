@@ -6,47 +6,41 @@ class Slider extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentIndex: 0,
+      activeSlide: 0,
     };
   }
 
   next = () => {
-    if (this.state.currentIndex >= 10) {
+    const getTotalSlides = document.querySelector("img[data-totalslides]");
+    if (this.state.activeSlide >= getTotalSlides) {
       return;
     } else {
-      this.setState({ currentIndex: this.state.currentIndex + 1 });
+      this.setState({ activeSlide: this.state.activeSlide + 1 });
     }
   };
 
   prev = () => {
-    if (this.state.currentIndex <= 0) {
+    if (this.state.activeSlide <= 0) {
       return;
     } else {
-      this.setState({ currentIndex: this.state.currentIndex - 1 });
+      this.setState({ activeSlide: this.state.activeSlide - 1 });
     }
   };
 
   render() {
-    var obj = {};
-    var pictures = datasProperty.map((item) => item.pictures);
-    var imagebis = pictures.forEach((img) => img[0]);
-    var image = pictures.forEach((img) => {
-      obj[img[0]] = img[1];
-    });
-    console.log(pictures);
-    console.log(image);
-    console.log(imagebis);
-    console.log(obj);
+    const id = window.location.href.split("property:")[1];
+    const filterDatas = datasProperty.filter((item) => item.id === id);
+    const totalSlides = filterDatas.map((item) => item.pictures.length);
+
     return (
       <section className="slider">
-        {datasProperty.map((item, index) => (
+        {filterDatas.map((item) => (
           <img
-            index={index}
-            key={"slide" + index}
-            id={item.id}
+            key={"slide" + this.state.activeSlide}
+            id={`${item.id}-${this.state.activeSlide}`}
+            data-totalslides={totalSlides}
             className="slide"
-            // className={`${isActive} slide`}
-            src={item.pictures[index]}
+            src={item.pictures[this.state.activeSlide]}
             alt=""
             loading="eager"
           />

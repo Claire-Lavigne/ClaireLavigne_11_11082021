@@ -7,6 +7,11 @@
   position: relative;
 }
 
+.slide {
+  border-radius: 10px;
+  transition: all ease-out 0.45s;
+}
+
 .prev,
 .next {
   position: absolute;
@@ -30,5 +35,9 @@
     height: 415px;
     border-radius: 25px;
     overflow: hidden;
+  }
+
+  .slide {
+    border-radius: 25px;
   }
 }

@@ -8,15 +8,22 @@ class Slider extends Component {
 
     const id = window.location.href.split("property:")[1];
     this.filterDatas = datasProperty.filter((item) => item.id === id);
-    this.filterPix = this.filterDatas.map((item) => item.pictures.length);
-    this.totalSlides = this.filterPix[0];
+    const filterPix = this.filterDatas.map((item) => item.pictures.length);
+    this.totalSlides = filterPix[0];
 
     this.state = {
       activeSlide: 0,
+      translate: 0,
     };
   }
 
   next = () => {
+    // animation
+    this.setState({ translate: 300 });
+    setTimeout(() => {
+      this.setState({ translate: 0 });
+    }, 1);
+    // if not last img reduce index else get first img
     if (this.state.activeSlide < this.totalSlides - 1) {
       this.setState({ activeSlide: this.state.activeSlide + 1 });
     } else {
@@ -25,6 +32,12 @@ class Slider extends Component {
   };
 
   prev = () => {
+    // animation
+    this.setState({ translate: -300 });
+    setTimeout(() => {
+      this.setState({ translate: 0 });
+    }, 1);
+    // if not img[0] reduce index else get last img
     if (this.state.activeSlide > 0) {
       this.setState({ activeSlide: this.state.activeSlide - 1 });
     } else {
@@ -44,6 +57,9 @@ class Slider extends Component {
             src={item.pictures[this.state.activeSlide]}
             alt=""
             loading="eager"
+            style={{
+              transform: `translateX(${this.state.translate}px)`,
+            }}
           />
         ))}
         <button className="prev" onClick={this.prev}>

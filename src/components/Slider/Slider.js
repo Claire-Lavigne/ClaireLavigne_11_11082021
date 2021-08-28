@@ -10,6 +10,7 @@ class Slider extends Component {
     this.filterDatas = datasProperty.filter((item) => item.id === id);
     this.filterPix = this.filterDatas.map((item) => item.pictures.length);
     this.totalSlides = this.filterPix[0];
+
     this.state = {
       activeSlide: 0,
     };
@@ -18,14 +19,16 @@ class Slider extends Component {
   next = () => {
     if (this.state.activeSlide < this.totalSlides - 1) {
       this.setState({ activeSlide: this.state.activeSlide + 1 });
-      console.log("next", this.state.activeSlide);
+    } else {
+      this.setState({ activeSlide: 0 });
     }
   };
 
   prev = () => {
     if (this.state.activeSlide > 0) {
       this.setState({ activeSlide: this.state.activeSlide - 1 });
-      console.log("prev", this.state.activeSlide);
+    } else {
+      this.setState({ activeSlide: this.totalSlides - 1 });
     }
   };
 

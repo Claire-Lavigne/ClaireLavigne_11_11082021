@@ -5,40 +5,38 @@ import datasProperty from "../../datas-property.json";
 class Slider extends Component {
   constructor(props) {
     super(props);
+
+    const id = window.location.href.split("property:")[1];
+    this.filterDatas = datasProperty.filter((item) => item.id === id);
+    this.filterPix = this.filterDatas.map((item) => item.pictures.length);
+    this.totalSlides = this.filterPix[0];
     this.state = {
       activeSlide: 0,
     };
   }
 
   next = () => {
-    const getTotalSlides = document.querySelector("img[data-totalslides]");
-    if (this.state.activeSlide >= getTotalSlides) {
-      return;
-    } else {
+    if (this.state.activeSlide < this.totalSlides - 1) {
       this.setState({ activeSlide: this.state.activeSlide + 1 });
+      console.log("next", this.state.activeSlide);
     }
   };
 
   prev = () => {
-    if (this.state.activeSlide <= 0) {
-      return;
-    } else {
+    if (this.state.activeSlide > 0) {
       this.setState({ activeSlide: this.state.activeSlide - 1 });
+      console.log("prev", this.state.activeSlide);
     }
   };
 
   render() {
-    const id = window.location.href.split("property:")[1];
-    const filterDatas = datasProperty.filter((item) => item.id === id);
-    const totalSlides = filterDatas.map((item) => item.pictures.length);
-
     return (
       <section className="slider">
-        {filterDatas.map((item) => (
+        {this.filterDatas.map((item) => (
           <img
             key={"slide" + this.state.activeSlide}
             id={`${item.id}-${this.state.activeSlide}`}
-            data-totalslides={totalSlides}
+            data-totalslides={this.totalSlides}
             className="slide"
             src={item.pictures[this.state.activeSlide]}
             alt=""

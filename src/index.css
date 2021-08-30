@@ -107,7 +107,7 @@ img:not(.logo) {
 }
 
 .active {
-  display: block;
+  display: block !important;
 }
 
 section:last-of-type {

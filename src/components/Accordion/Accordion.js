@@ -5,10 +5,11 @@ class Accordion extends Component {
   constructor(props) {
     super(props);
     this.state = { active: false };
-    this.toggleClass = this.toggleClass.bind(this);
   }
 
   toggleClass = () => {
+    const accordions = document.querySelectorAll(".accordionBtn");
+    accordions.forEach((item) => item.className.remove("active"));
     this.setState({
       active: !this.state.active,
     });

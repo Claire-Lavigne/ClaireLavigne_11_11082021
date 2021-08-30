@@ -1,0 +1,23 @@
+.tags {
+  margin: 20px auto;
+}
+
+.tag {
+  background: var(--main-clr);
+  color: var(--light);
+  border-radius: 10px;
+  font-weight: 500;
+  margin: 10px;
+  margin-left: 0;
+  font-size: 10px;
+  width: 84px;
+  padding: 3px 9px;
+}
+
+@media screen and (min-width: 600px) {
+  .tag {
+    font-size: var(--mouse);
+    width: 115px;
+    padding: 5px 9px;
+  }
+}

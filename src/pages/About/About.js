@@ -11,9 +11,9 @@ class About extends Component {
       <div className="wrapper">
         <Header />
         <Banner img="assets/landscape-mountains.png" />
-        <section class="accordions">
-          {datasPrinciples.map((item) => (
-            <Accordion>
+        <section className="accordions">
+          {datasPrinciples.map((item, index) => (
+            <Accordion key={`accordion-${index}`}>
               {item.title}
               {item.description}
             </Accordion>

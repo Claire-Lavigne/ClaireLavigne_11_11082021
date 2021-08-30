@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.slide {
+.slider img {
   border-radius: 10px;
   transition: all ease-out 0.45s;
 }

@@ -46,20 +46,6 @@ class Slider extends Component {
   };
 
   render() {
-    const showArrows = () => {
-      if (this.totalSlides > 1) {
-        return (
-          <>
-            <button className="prev" onClick={this.prev}>
-              <img src="./assets/arrow-left.png" alt="previous slide" />
-            </button>
-            <button className="next" onClick={this.next}>
-              <img src="./assets/arrow-right.png" alt="next slide" />
-            </button>
-          </>
-        );
-      }
-    };
     return (
       <section className="slider">
         {this.filterDatas.map((item) => (
@@ -69,12 +55,25 @@ class Slider extends Component {
             // data-totalslides={this.totalSlides}
             src={item.pictures[this.state.activeSlide]}
             alt=""
+            loading="auto"
             style={{
               transform: `translateX(${this.state.translateValue}px)`,
             }}
           />
         ))}
-        {showArrows()}
+        {this.totalSlides > 1 && (
+          <>
+            <button className="prev" onClick={this.prev}>
+              <img src="./assets/arrow-left.png" alt="previous slide" />
+            </button>
+            <button className="next" onClick={this.next}>
+              <img src="./assets/arrow-right.png" alt="next slide" />
+            </button>
+            <div className="slidesNumber">
+              {this.state.activeSlide + 1}/{this.totalSlides}
+            </div>
+          </>
+        )}
       </section>
     );
   }

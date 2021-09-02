@@ -7,7 +7,7 @@
   max-width: 335px;
   height: 111px;
   overflow: hidden;
-  margin: 10px 0;
+  margin: 10px auto;
 }
 
 .banner-box {
@@ -20,7 +20,6 @@
 }
 
 .banner-text {
-  font-weight: 500;
   font-size: calc(var(--ant) * 2);
   padding: 10px;
 }

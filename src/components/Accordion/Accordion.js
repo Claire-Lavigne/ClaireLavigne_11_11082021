@@ -2,33 +2,38 @@ import React, { Component } from "react";
 import styles from "./accordion.module.css";
 
 class Accordion extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { active: false };
-  }
+  state = { active: false, rotationValue: 0 };
 
   toggleClass = () => {
-    const accordions = document.querySelectorAll(".accordionBtn");
-    accordions.forEach((item) => item.className.remove("active"));
     this.setState({
       active: !this.state.active,
     });
+    this.state.active
+      ? this.setState({ rotationValue: 0 })
+      : this.setState({ rotationValue: 180 });
   };
 
   render() {
-    const isActive = this.state.active ? "active" : "";
-    const size = this.props.size === "half" ? styles.half : "";
-    const sizeBTN = this.props.size === "half" ? styles.accordionBtnSmall : "";
-    const sizeContent =
-      this.props.size === "half" ? styles.accordionPanelSmall : "";
+    const size = this.props.size;
+    const isActive = this.state.active && "active";
+    const sizeAccordion = size === "half" && styles.accordionHalf;
+    const sizeBTN = size === "half" && styles.accordionBtnSmall;
+    const sizeContent = size === "half" && styles.accordionPanelSmall;
 
     return (
-      <div className={`${styles.accordion} ${size} d-flex`}>
+      <div className={`${styles.accordion} ${sizeAccordion}`}>
         <button
-          className={`${styles.accordionBtn} ${isActive} ${sizeBTN} text-left`}
+          className={`${styles.accordionBtn} ${isActive} ${sizeBTN}  d-flex justify-between`}
           onClick={this.toggleClass}
         >
-          {this.props.children[0]}
+          <h2>{this.props.children[0]}</h2>
+          <img
+            style={{
+              transform: `rotate(${this.state.rotationValue}deg)`,
+            }}
+            src="./assets/arrow-down.png"
+            alt=""
+          />
         </button>
         <div className={`${styles.accordionPanel} ${isActive} ${sizeContent}`}>
           {this.props.children[1]}

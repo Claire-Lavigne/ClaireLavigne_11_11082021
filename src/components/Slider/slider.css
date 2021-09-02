@@ -12,6 +12,15 @@
   transition: all ease-out 0.45s;
 }
 
+.slidesNumber {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--light);
+  font-size: var(--ant);
+}
+
 .prev,
 .next {
   position: absolute;
@@ -29,6 +38,12 @@
   right: 0;
 }
 
+.prev img,
+.next img {
+  width: 12px;
+  height: 20px;
+}
+
 @media screen and (min-width: 600px) {
   .slider {
     max-width: 1240px;
@@ -39,5 +54,14 @@
 
   .slide {
     border-radius: 25px;
+  }
+
+  .prev img,
+  .next img {
+    width: 47px;
+    height: 80px;
+  }
+  .slidesNumber {
+    font-size: var(--human);
   }
 }

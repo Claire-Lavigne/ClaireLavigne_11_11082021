@@ -10,8 +10,8 @@ class About extends Component {
     return (
       <div className="wrapper">
         <Header />
-        <Banner img="assets/landscape-mountains.png" />
-        <section className="accordions">
+        <Banner src="assets/landscape-mountains.png" />
+        <section className="about-accordions">
           {datasPrinciples.map((item, index) => (
             <Accordion key={`accordion-${index}`}>
               {item.title}

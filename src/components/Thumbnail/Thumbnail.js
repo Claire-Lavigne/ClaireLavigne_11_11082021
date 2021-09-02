@@ -6,7 +6,7 @@ class Thumbnail extends Component {
     const { property } = this.props;
     return (
       <div className="thumbnail">
-        <img src={property.cover} alt={property.title} loading="eager" />
+        <img src={property.cover} alt={property.title} loading="auto" />
         <div className="thumbnail-box">
           <p className="thumbnail-text">{property.title}</p>
         </div>

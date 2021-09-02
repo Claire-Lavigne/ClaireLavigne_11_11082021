@@ -1,0 +1,21 @@
+footer {
+  padding: 2em;
+  margin: 0 -20px;
+  background: var(--dark);
+  color: var(--light);
+}
+
+footer div {
+  font-size: var(--ant);
+}
+
+footer .logo {
+  margin-bottom: 1em;
+}
+
+/* computer */
+@media screen and (min-width: 600px) {
+  footer div {
+    font-size: calc(var(--ant) * 2);
+  }
+}

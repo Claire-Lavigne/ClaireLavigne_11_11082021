@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import "./nav.css";
 
 class Nav extends Component {
   render() {
     return (
-      <nav className="text-right">
+      <nav>
         <NavLink
           exact={true}
           activeClassName="is-active"

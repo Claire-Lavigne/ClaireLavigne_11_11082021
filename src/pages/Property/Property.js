@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Accordion from "../../components/Accordion/Accordion";
 import Slider from "../../components/Slider/Slider";
-import Tags from "../../components/Tags/Tag";
+import Tags from "../../components/Tags/Tags";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import Rating from "../../components/Rating/Rating";
 import datas from "../../datas-property.json";
@@ -11,13 +11,14 @@ import "./property.css";
 class Property extends Component {
   state = {
     property: null,
-    totalSlides: null,
+    slides: [],
   };
 
   componentDidMount() {
-    let property = this.getDatas();
-    let totalSlides = property.pix.length;
-    this.setState({ property, totalSlides });
+    this.setState({
+      property: this.getDatas(),
+      slides: this.getDatas().pix,
+    });
   }
 
   getDatas = () => {
@@ -25,9 +26,9 @@ class Property extends Component {
     const filteredItem = datas
       .filter((item) => item.id === id)
       .map((item) => item);
-    const pix = filteredItem[0].pictures;
+    const pix = filteredItem[0].pictures.map((img) => img);
     const title = filteredItem[0].title;
-    const tags = filteredItem[0].tags;
+    const tags = filteredItem[0].tags.map((t) => <Tags tag={t} key={t} />);
     const location = filteredItem[0].location;
     const userName = filteredItem[0].host.name;
     const userImg = filteredItem[0].host.picture;
@@ -82,18 +83,10 @@ class Property extends Component {
     return (
       <div className="wrapper">
         <Header />
-        <section className="slider">
-          {this.state.property &&
-            this.state.property.pix.map((p, index) => (
-              <Slider
-                key={"slide" + index}
-                src={p}
-                id={index}
-                totalSlides={this.state.totalSlides}
-              />
-            ))}
-        </section>
-        <div>{this.state.property && this.state.property.title}</div>
+        <Slider
+          slides={this.state.slides}
+          totalSlides={this.state.slides.length}
+        />
         <section className="infos">
           <div className="infos-left">
             <h1 className="propertyTitle">
@@ -102,13 +95,9 @@ class Property extends Component {
             <p className="propertyLocation">
               {this.state.property && this.state.property.location}
             </p>
-            {this.state.property &&
-              this.state.property.tags.map((t, i) => (
-                <div className="tag" key={t}>
-                  <Tags tag={t} />
-                </div>
-              ))}
-            ;
+            <div className="tags">
+              {this.state.property && this.state.property.tags}
+            </div>
           </div>
           <div className="infos-right">
             <UserProfile

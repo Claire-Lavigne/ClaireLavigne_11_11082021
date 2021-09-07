@@ -9,6 +9,7 @@
 
 .slider img {
   border-radius: 10px;
+  display: block;
   transition: all ease-out 0.45s;
 }
 

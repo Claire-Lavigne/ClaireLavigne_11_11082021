@@ -1,5 +1,9 @@
 .notFound {
-  height: 70vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .notFoundTitle {
@@ -11,11 +15,10 @@
 
 .notFoundSubtitle {
   color: var(--main-clr);
-  margin-top: 0;
-  margin-bottom: 150px;
 }
 
 .notFoundLink {
+  margin: 100px auto;
   font-size: var(--mouse);
   color: var(--main-clr);
   text-decoration-line: underline;

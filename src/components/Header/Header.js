@@ -6,7 +6,7 @@ import "./header.css";
 class Header extends Component {
   render() {
     return (
-      <header className="d-flex justify-between">
+      <header>
         <Logo src="/assets/logo-color.png" />
         <Nav />
       </header>

@@ -1,3 +1,7 @@
+.active {
+  display: inline-flex !important;
+}
+
 .accordion {
   margin: 1em auto;
   width: 100%;
@@ -5,6 +9,10 @@
 }
 
 .accordionBtn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
   background: var(--main-clr);
   color: var(--light);
   cursor: pointer;
@@ -14,6 +22,7 @@
   font-size: 13px;
   transition: 0.4s;
   width: 100%;
+  border: none;
 }
 
 .accordionPanel {

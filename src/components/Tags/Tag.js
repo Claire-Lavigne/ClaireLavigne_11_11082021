@@ -3,7 +3,7 @@ import "./tag.css";
 
 class Tag extends Component {
   render() {
-    return <div className="tag text-center">{this.props.children}</div>;
+    return <div className="tags">{this.props.tag}</div>;
   }
 }
 

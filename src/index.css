@@ -47,75 +47,9 @@ img:not(.logo) {
   object-fit: cover;
 }
 
-.text-right {
-  text-align: right;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.m-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .d-flex {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-}
-
-.flex-col {
-  flex-flow: column nowrap;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.justify-start {
-  justify-content: flex-start;
-}
-
-.justify-end {
-  justify-content: flex-end;
-}
-
-.align-start {
-  align-items: flex-start;
-}
-
-.active {
-  display: inline-flex !important;
-}
-
-.navLink {
-  padding: 1em;
-  font-size: var(--ant);
-  color: var(--main-clr);
-  text-decoration: none;
-}
-.navLink:hover,
-.navLink.is-active {
-  text-decoration: underline;
-}
-
-/* mobile */
-@media screen and (max-width: 599px) {
-  .navLink {
-    text-transform: uppercase;
-  }
-}
-
-/* computer */
-@media screen and (min-width: 600px) {
-  .navLink {
-    font-size: calc(var(--ant) * 2);
-  }
 }

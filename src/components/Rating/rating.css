@@ -1,0 +1,16 @@
+.fullStars {
+  letter-spacing: 5px;
+  font-size: 30px;
+  color: var(--main-clr);
+}
+.emptyStars {
+  letter-spacing: 5px;
+  font-size: 30px;
+  color: #e3e3e3;
+}
+
+@media screen and (min-width: 600px) {
+  .rating {
+    order: 1;
+  }
+}

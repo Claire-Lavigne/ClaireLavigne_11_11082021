@@ -2,6 +2,10 @@ header {
   padding: 1em 0;
   margin: 0 auto;
   max-width: 1240px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* mobile */

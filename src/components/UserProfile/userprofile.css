@@ -1,0 +1,35 @@
+.userProfile {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  order: 1;
+}
+
+.userProfile_name {
+  color: var(--main-clr);
+  width: min-content;
+  padding: 0.5em;
+  font-size: var(--ant);
+  line-height: 17px;
+}
+
+.userProfile_img {
+  width: 32px;
+  height: 32px;
+  background: #c4c4c4;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 600px) {
+  .userProfile_name {
+    font-size: var(--human);
+    line-height: 26px;
+  }
+  .userProfile_img {
+    width: 64px;
+    height: 64px;
+    background: #c4c4c4;
+  }
+}

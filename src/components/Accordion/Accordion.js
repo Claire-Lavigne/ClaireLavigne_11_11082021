@@ -15,7 +15,7 @@ class Accordion extends Component {
 
   render() {
     const size = this.props.size;
-    const isActive = this.state.active && "active";
+    const isActive = this.state.active && styles.active;
     const sizeAccordion = size === "half" && styles.accordionHalf;
     const sizeBTN = size === "half" && styles.accordionBtnSmall;
     const sizeContent = size === "half" && styles.accordionPanelSmall;
@@ -23,7 +23,7 @@ class Accordion extends Component {
     return (
       <div className={`${styles.accordion} ${sizeAccordion}`}>
         <button
-          className={`${styles.accordionBtn} ${isActive} ${sizeBTN}  d-flex justify-between`}
+          className={`${styles.accordionBtn} ${isActive} ${sizeBTN}`}
           onClick={this.toggleClass}
         >
           <h2>{this.props.children[0]}</h2>

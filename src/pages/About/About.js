@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import Accordion from "../../components/Accordion/Accordion";
 import Footer from "../../components/Footer/Footer";
-import datasPrinciples from "../../datas-principles.json";
+import principles from "../../datas-principles.json";
 
 class About extends Component {
   render() {
@@ -12,7 +12,7 @@ class About extends Component {
         <Header />
         <Banner src="assets/landscape-mountains.png" />
         <section className="about-accordions">
-          {datasPrinciples.map((item, index) => (
+          {principles.map((item, index) => (
             <Accordion key={`accordion-${index}`}>
               {item.title}
               {item.description}

@@ -1,8 +1,13 @@
 .tags {
   margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .tag {
+  text-align: center;
   background: var(--main-clr);
   color: var(--light);
   border-radius: 10px;

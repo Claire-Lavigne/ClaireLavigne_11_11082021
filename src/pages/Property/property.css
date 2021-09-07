@@ -11,22 +11,6 @@
   line-height: 20px;
 }
 
-.host-name {
-  color: var(--main-clr);
-  width: min-content;
-  padding: 0.5em;
-  font-size: var(--ant);
-  line-height: 17px;
-}
-
-.host-profile {
-  width: 32px;
-  height: 32px;
-  background: #c4c4c4;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
 @media screen and (min-width: 600px) {
   .propertyTitle {
     font-size: calc(var(--human) * 2);
@@ -36,15 +20,6 @@
     font-size: var(--human);
     line-height: 26px;
   }
-  .host-name {
-    font-size: var(--human);
-    line-height: 26px;
-  }
-  .host-profile {
-    width: 64px;
-    height: 64px;
-    background: #c4c4c4;
-  }
   .accordions {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -53,22 +28,19 @@
   }
 }
 
-.fullStars {
-  letter-spacing: 5px;
-  font-size: 30px;
-  color: var(--main-clr);
-}
-.emptyStars {
-  letter-spacing: 5px;
-  font-size: 30px;
-  color: #e3e3e3;
-}
-
 .infos {
   width: 100%;
   max-width: 335px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
-.infos > .text-right {
+.infos-left {
+  text-align: left;
+}
+.infos-right {
+  text-align: right;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -76,22 +48,14 @@
   align-items: center;
 }
 
-.infos > .text-right .justify-end {
-  order: 1;
-}
-
 @media screen and (min-width: 600px) {
   .infos {
     max-width: 1240px;
   }
-  .infos > .text-right {
+  .infos-right {
     width: unset;
     flex-flow: column wrap;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .infos > .text-right .rating {
-    order: 1;
   }
 }

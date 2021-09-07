@@ -2,36 +2,45 @@ import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Accordion from "../../components/Accordion/Accordion";
 import Slider from "../../components/Slider/Slider";
-import Tag from "../../components/Tags/Tag";
-import datasProperty from "../../datas-property.json";
+import Tags from "../../components/Tags/Tag";
+import UserProfile from "../../components/UserProfile/UserProfile";
+import Rating from "../../components/Rating/Rating";
+import datas from "../../datas-property.json";
 import "./property.css";
 
 class Property extends Component {
+  state = {
+    property: null,
+    totalSlides: null,
+  };
+
+  componentDidMount() {
+    let property = this.getDatas();
+    let totalSlides = property.pix.length;
+    this.setState({ property, totalSlides });
+  }
+
   getDatas = () => {
     const id = window.location.href.split("property:")[1];
-    const filteredItem = datasProperty
+    const filteredItem = datas
       .filter((item) => item.id === id)
       .map((item) => item);
-    const pix = filteredItem[0].pictures.map((p) => p);
+    const pix = filteredItem[0].pictures;
     const title = filteredItem[0].title;
-    const tag = filteredItem[0].tags.map((t, i) => (
-      <Tag key={`${t}-${i}`}>{t}</Tag>
-    ));
+    const tags = filteredItem[0].tags;
     const location = filteredItem[0].location;
-    const name = filteredItem[0].host.name;
-    const profile = filteredItem[0].host.picture;
+    const userName = filteredItem[0].host.name;
+    const userImg = filteredItem[0].host.picture;
     const rating = filteredItem[0].rating;
     const desc = filteredItem[0].description;
-    const stuff = filteredItem[0].equipments.map((e, i) => (
-      <li key={`${e}-${i}`}>{e}</li>
-    ));
+    const stuff = filteredItem[0].equipments.map((e) => <li key={e}>{e}</li>);
     return {
       pix,
       title,
-      tag,
+      tags,
       location,
-      name,
-      profile,
+      userName,
+      userImg,
       rating,
       desc,
       stuff,
@@ -39,20 +48,21 @@ class Property extends Component {
   };
 
   rating = (rate) => {
-    rate = parseInt(this.getDatas().rating);
+    // rate = parseInt(this.state.property.rating);
+    rate = parseInt(3);
     let emptyStars = "";
     let fullStars = "";
-    this.maxRate = 5;
-    let n = 0;
+    let maxRate = 5;
+    let minRate = 0;
 
-    while (n < rate) {
+    while (minRate < rate) {
       fullStars += "★";
-      n++;
+      minRate++;
     }
 
-    while (this.maxRate > rate) {
+    while (maxRate > rate) {
       emptyStars += "★";
-      this.maxRate--;
+      maxRate--;
     }
 
     let full = React.createElement(
@@ -72,35 +82,51 @@ class Property extends Component {
     return (
       <div className="wrapper">
         <Header />
-        <Slider />
-
-        <section className="infos d-flex justify-between">
-          <div className="text-left">
-            <h1 className="propertyTitle">{this.getDatas().title}</h1>
-            <p className="propertyLocation">{this.getDatas().location}</p>
-            <div className="tags d-flex justify-start">
-              {this.getDatas().tag}
-            </div>
+        <section className="slider">
+          {this.state.property &&
+            this.state.property.pix.map((p, index) => (
+              <Slider
+                key={"slide" + index}
+                src={p}
+                id={index}
+                totalSlides={this.state.totalSlides}
+              />
+            ))}
+        </section>
+        <div>{this.state.property && this.state.property.title}</div>
+        <section className="infos">
+          <div className="infos-left">
+            <h1 className="propertyTitle">
+              {this.state.property && this.state.property.title}
+            </h1>
+            <p className="propertyLocation">
+              {this.state.property && this.state.property.location}
+            </p>
+            {this.state.property &&
+              this.state.property.tags.map((t, i) => (
+                <div className="tag" key={t}>
+                  <Tags tag={t} />
+                </div>
+              ))}
+            ;
           </div>
-          <div className="text-right">
-            <div className="d-flex justify-end">
-              <p className="host-name">{this.getDatas().name}</p>
-              <div className="host-profile">
-                <img src={this.getDatas().profile} alt="" />
-              </div>
-            </div>
-            <span className="rating">{this.rating()}</span>
+          <div className="infos-right">
+            <UserProfile
+              userName={this.state.property && this.state.property.name}
+              userImg={this.state.property && this.state.property.profile}
+            />
+            <Rating rating={this.rating()} />
           </div>
         </section>
 
         <section className="accordions">
           <Accordion size="half">
             Description
-            {this.getDatas().desc}
+            {this.state.property && this.state.property.desc}
           </Accordion>
           <Accordion size="half">
             Équipements
-            <ul>{this.getDatas().stuff}</ul>
+            <ul>{this.state.property && this.state.property.stuff}</ul>
           </Accordion>
         </section>
       </div>

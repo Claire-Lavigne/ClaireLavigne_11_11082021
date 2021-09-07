@@ -1,3 +1,23 @@
 nav {
   text-align: right;
 }
+
+.navLink {
+  padding: 1em;
+  font-size: var(--ant);
+  color: var(--main-clr);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.navLink:hover,
+.navLink.is-active {
+  text-decoration: underline;
+}
+
+/* computer */
+@media screen and (min-width: 600px) {
+  .navLink {
+    text-transform: unset;
+    font-size: calc(var(--ant) * 2);
+  }
+}

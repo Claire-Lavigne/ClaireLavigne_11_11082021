@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import Thumbnail from "../../components/Thumbnail/Thumbnail";
 import Footer from "../../components/Footer/Footer";
-import datasProperty from "../../datas-property.json";
+import datas from "../../datas-property.json";
 
 class Home extends Component {
   render() {
@@ -12,7 +12,7 @@ class Home extends Component {
         <Header />
         <Banner src="assets/landscape-forest.png" />
         <section className="thumbnails d-flex">
-          {datasProperty.map((item, index) => (
+          {datas.map((item, index) => (
             <a key={"thumbnail" + index} href={`/property:${item.id}`}>
               <Thumbnail property={item} />
             </a>

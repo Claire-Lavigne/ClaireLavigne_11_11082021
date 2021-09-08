@@ -1,0 +1,10 @@
+@media screen and (min-width: 600px) {
+  .slidesNumber {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--light);
+    font-size: var(--human);
+  }
+}

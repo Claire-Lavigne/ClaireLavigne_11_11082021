@@ -3,7 +3,15 @@ import "./tags.css";
 
 class Tags extends Component {
   render() {
-    return <div className="tag">{this.props.tag}</div>;
+    return (
+      <div className="tags">
+        {this.props.tags.map((tag, index) => (
+          <div className="tag" key={`tag${index}`}>
+            {tag}
+          </div>
+        ))}
+      </div>
+    );
   }
 }
 

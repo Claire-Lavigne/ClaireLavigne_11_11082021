@@ -1,0 +1,23 @@
+.propertyTitle {
+  margin-top: 10px;
+  color: var(--main-clr);
+  font-size: var(--human);
+  line-height: 26px;
+}
+
+.propertyLocation {
+  color: var(--main-clr);
+  font-size: var(--mouse);
+  line-height: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .propertyTitle {
+    font-size: calc(var(--human) * 2);
+    line-height: 51px;
+  }
+  .propertyLocation {
+    font-size: var(--human);
+    line-height: 26px;
+  }
+}

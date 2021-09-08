@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/Header/Header";
 import Accordion from "../../components/Accordion/Accordion";
 import Slider from "../../components/Slider/Slider";
+import LocationInfos from "../../components/LocationInfos/LocationInfos";
 import Tags from "../../components/Tags/Tags";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import Rating from "../../components/Rating/Rating";
@@ -12,12 +13,14 @@ class Property extends Component {
   state = {
     property: null,
     slides: [],
+    tags: [],
   };
 
   componentDidMount() {
     this.setState({
       property: this.getDatas(),
       slides: this.getDatas().pix,
+      tags: this.getDatas().tags,
     });
   }
 
@@ -26,9 +29,9 @@ class Property extends Component {
     const filteredItem = datas
       .filter((item) => item.id === id)
       .map((item) => item);
-    const pix = filteredItem[0].pictures.map((img) => img);
+    const pix = filteredItem[0].pictures;
     const title = filteredItem[0].title;
-    const tags = filteredItem[0].tags.map((t) => <Tags tag={t} key={t} />);
+    const tags = filteredItem[0].tags;
     const location = filteredItem[0].location;
     const userName = filteredItem[0].host.name;
     const userImg = filteredItem[0].host.picture;
@@ -48,74 +51,37 @@ class Property extends Component {
     };
   };
 
-  rating = (rate) => {
-    // rate = parseInt(this.state.property.rating);
-    rate = parseInt(3);
-    let emptyStars = "";
-    let fullStars = "";
-    let maxRate = 5;
-    let minRate = 0;
-
-    while (minRate < rate) {
-      fullStars += "★";
-      minRate++;
-    }
-
-    while (maxRate > rate) {
-      emptyStars += "★";
-      maxRate--;
-    }
-
-    let full = React.createElement(
-      "span",
-      { className: "fullStars" },
-      fullStars
-    );
-    let empty = React.createElement(
-      "span",
-      { className: "emptyStars" },
-      emptyStars
-    );
-    return [full, empty];
-  };
-
   render() {
+    const datas = this.state.property;
     return (
       <div className="wrapper">
         <Header />
-        <Slider
-          slides={this.state.slides}
-          totalSlides={this.state.slides.length}
-        />
+        <Slider slides={this.state.slides} />
         <section className="infos">
           <div className="infos-left">
-            <h1 className="propertyTitle">
-              {this.state.property && this.state.property.title}
-            </h1>
-            <p className="propertyLocation">
-              {this.state.property && this.state.property.location}
-            </p>
-            <div className="tags">
-              {this.state.property && this.state.property.tags}
-            </div>
+            <LocationInfos
+              locationTitle={datas && datas.title}
+              locationAddress={datas && datas.location}
+            />
+            <Tags tags={this.state.tags} />
           </div>
           <div className="infos-right">
             <UserProfile
-              userName={this.state.property && this.state.property.name}
-              userImg={this.state.property && this.state.property.profile}
+              userName={datas && datas.userName}
+              userImg={datas && datas.userImg}
             />
-            <Rating rating={this.rating()} />
+            <Rating rating={datas && datas.rating} />
           </div>
         </section>
 
         <section className="accordions">
           <Accordion size="half">
             Description
-            {this.state.property && this.state.property.desc}
+            {datas && datas.desc}
           </Accordion>
           <Accordion size="half">
             Équipements
-            <ul>{this.state.property && this.state.property.stuff}</ul>
+            <ul>{datas && datas.stuff}</ul>
           </Accordion>
         </section>
       </div>

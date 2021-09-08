@@ -1,0 +1,22 @@
+.prev {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border: none;
+  padding: 2em;
+  background: transparent;
+  cursor: pointer;
+}
+
+.prev img {
+  width: 12px;
+  height: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .prev img {
+    width: 47px;
+    height: 80px;
+  }
+}

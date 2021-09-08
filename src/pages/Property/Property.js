@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Accordion from "../../components/Accordion/Accordion";
 import Slider from "../../components/Slider/Slider";
@@ -29,6 +30,9 @@ class Property extends Component {
     const filteredItem = datas
       .filter((item) => item.id === id)
       .map((item) => item);
+    if (!filteredItem[0]) {
+      return <Redirect to="/404" />;
+    }
     const pix = filteredItem[0].pictures;
     const title = filteredItem[0].title;
     const tags = filteredItem[0].tags;
@@ -53,6 +57,11 @@ class Property extends Component {
 
   render() {
     const datas = this.state.property;
+
+    if (!this.state.slides) {
+      return <Redirect to="/404" />;
+    }
+
     return (
       <div className="wrapper">
         <Header />

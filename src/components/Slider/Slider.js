@@ -15,7 +15,7 @@ class Slider extends Component {
 
   nextSlide = () => {
     // if last img get first img else get next img
-    if (this.state.activeSlide === this.props.totalSlides - 1) {
+    if (this.state.activeSlide === this.props.slides.length - 1) {
       this.setState({ activeSlide: 0 });
     } else {
       this.setState({
@@ -27,7 +27,7 @@ class Slider extends Component {
   prevSlide = () => {
     // if img[0] get last img else get prev img
     if (this.state.activeSlide === 0) {
-      this.setState({ activeSlide: this.props.totalSlides - 1 });
+      this.setState({ activeSlide: this.props.slides.length - 1 });
     } else {
       this.setState({ activeSlide: this.state.activeSlide - 1 });
     }

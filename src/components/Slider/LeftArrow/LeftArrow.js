@@ -5,7 +5,7 @@ class LeftArrow extends Component {
   render() {
     return (
       <button className="prev" onClick={this.props.onClick}>
-        <img src="./assets/arrow-left.png" alt="go to previous slide" />
+        <img src="../assets/arrow-left.png" alt="go to previous slide" />
       </button>
     );
   }

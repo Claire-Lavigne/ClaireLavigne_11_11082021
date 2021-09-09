@@ -26,7 +26,7 @@ class Property extends Component {
   }
 
   getDatas = () => {
-    const id = window.location.href.split("property:")[1];
+    const id = this.props.match.params.id;
     const filteredItem = datas
       .filter((item) => item.id === id)
       .map((item) => item);

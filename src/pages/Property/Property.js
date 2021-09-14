@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import Accordion from "../../components/Accordion/Accordion";
 import Slider from "../../components/Slider/Slider";
 import LocationInfos from "../../components/LocationInfos/LocationInfos";
@@ -93,6 +94,7 @@ class Property extends Component {
             <ul>{datas && datas.stuff}</ul>
           </Accordion>
         </section>
+        <Footer />
       </div>
     );
   }

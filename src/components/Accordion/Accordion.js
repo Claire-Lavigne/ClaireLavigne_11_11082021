@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import styles from "./accordion.module.css";
 
 class Accordion extends Component {
-  state = { active: false, rotationValue: 0 };
+  constructor(props) {
+    super(props);
+
+    this.state = { active: false, rotationValue: 0 };
+  }
 
   toggleClass = () => {
     this.setState({

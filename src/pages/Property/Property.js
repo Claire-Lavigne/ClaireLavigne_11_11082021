@@ -12,11 +12,15 @@ import datas from "../../datas-property.json";
 import "./property.css";
 
 class Property extends Component {
-  state = {
-    property: null,
-    slides: [],
-    tags: [],
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      property: null,
+      slides: [],
+      tags: [],
+    };
+  }
 
   componentDidMount() {
     this.setState({

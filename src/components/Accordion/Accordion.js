@@ -31,7 +31,7 @@ class Accordion extends Component {
             style={{
               transform: `rotate(${this.state.rotationValue}deg)`,
             }}
-            src="./assets/arrow-down.png"
+            src="../assets/arrow-down.png"
             alt=""
           />
         </button>

@@ -12,14 +12,6 @@ import datas from "../../datas-property.json";
 import "./property.css";
 
 class Property extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      datas: this.getDatas(),
-    };
-  }
-
   getDatas = () => {
     const id = this.props.match.params.id;
     const filteredItem = datas.filter((item) => item.id === id);
@@ -27,7 +19,7 @@ class Property extends Component {
   };
 
   render() {
-    const datas = this.state.datas;
+    const datas = this.getDatas();
 
     return datas ? (
       <div className="wrapper">

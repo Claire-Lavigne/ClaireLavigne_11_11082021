@@ -15,7 +15,7 @@ class Slider extends Component {
 
   nextSlide = () => {
     // if last img get first img else get next img
-    if (this.state.activeSlide === this.props.slides.length - 1) {
+    if (this.state.activeSlide === this.props.pix.length - 1) {
       this.setState({ activeSlide: 0 });
     } else {
       this.setState({
@@ -27,17 +27,17 @@ class Slider extends Component {
   prevSlide = () => {
     // if img[0] get last img else get prev img
     if (this.state.activeSlide === 0) {
-      this.setState({ activeSlide: this.props.slides.length - 1 });
+      this.setState({ activeSlide: this.props.pix.length - 1 });
     } else {
       this.setState({ activeSlide: this.state.activeSlide - 1 });
     }
   };
 
   render() {
-    const slides = this.props.slides;
+    const pix = this.props.pix;
     return (
       <section className="slider">
-        {slides.map((img, index) => (
+        {pix.map((img, index) => (
           <img
             key={`slide${index}`}
             className={
@@ -47,13 +47,13 @@ class Slider extends Component {
             alt=""
           />
         ))}
-        {slides.length > 1 && (
+        {pix.length > 1 && (
           <>
             <LeftArrow onClick={this.prevSlide} />
             <RightArrow onClick={this.nextSlide} />
             <SlidesNumber
               currentSlide={this.state.activeSlide + 1}
-              totalSlides={slides.length}
+              totalSlides={pix.length}
             />
           </>
         )}

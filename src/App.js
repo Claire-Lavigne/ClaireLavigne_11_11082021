@@ -18,7 +18,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/property/:id" component={Property} />
           <Route path="/about" component={About} />
-          <Route path="/404" component={NotFound} />
+          <Route component={NotFound} />
           <Redirect to="/404" />
         </Switch>
       </Router>
